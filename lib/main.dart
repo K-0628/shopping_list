@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'categorymenu.dart';
-import 'shoppinglist.dart';
-import 'actionbutton.dart';
+import 'category_menu.dart';
+import 'shopping_list.dart';
+import 'add_item_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _addItem(String item) {
+  void _addItem(item) {
     setState(() {
       selectedIconItem!.itemList.add(item);
     });
@@ -85,8 +85,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: ActionButton(
-        onAddItem: _addItem,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AddItemDialog(
+                  onAddItem: _addItem,
+                );
+              });
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

@@ -25,8 +25,9 @@ class CategoryMenu extends StatelessWidget {
               },
               icon: Icon(
                 iconItem.iconData,
-                color:
-                    iconItem == selectedIconItem ? Colors.white : Colors.grey,
+                color: iconItem == selectedIconItem
+                    ? Colors.white
+                    : Color.fromARGB(255, 61, 79, 88),
               ),
             ),
         ],
